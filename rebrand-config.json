@@ -1,0 +1,17 @@
+{
+  "originalPackageName": "com.wesodev1.mfrastreamento",
+  "newPackageName": "com.novaempresa.appname",
+  "originalAppName": "MF Rastreamento",
+  "newAppName": "Novo App Name",
+  "colors": {
+    "primary": "#023c69",
+    "secondary": "#2196F3",
+    "background": "#232323",
+    "text": "#FFFFFF"
+  },
+  "notificationChannelId": "high-priority",
+  "notificationChannelName": "Notificações Importantes",
+  "firebaseProjectId": "novo-projeto-firebase",
+  "keystoreAlias": "novoappname",
+  "webviewBaseUrl": "https://m.wefleet.com.br/mob/mfrastreadores"
+}

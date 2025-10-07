@@ -1,0 +1,41 @@
+{
+  "cli": {
+    "version": ">= 7.0.0"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease",
+        "credentialsSource": "remote",
+        "withoutCredentials": false
+      },
+      "env": {
+        "ANDROID_KEYSTORE_PASSWORD": "${ANDROID_KEYSTORE_PASSWORD}",
+        "ANDROID_KEY_PASSWORD": "${ANDROID_KEY_PASSWORD}"
+      }
+    },
+    "production": {
+      "android": {
+        "buildType": "app-bundle",
+        "credentialsSource": "remote",
+        "withoutCredentials": false
+      },
+      "env": {
+        "ANDROID_KEYSTORE_PASSWORD": "${ANDROID_KEYSTORE_PASSWORD}",
+        "ANDROID_KEY_PASSWORD": "${ANDROID_KEY_PASSWORD}"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

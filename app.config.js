@@ -1,16 +1,14 @@
 const path = require('path');
 const fs = require('fs');
 const { config } = require('dotenv');
-const withForceModularHeaders = require('./with-force-modular-headers'); // <-- Seu plugin customizado
+const withForceModularHeaders = require('./with-force-modular-headers');
 
-// Carrega variáveis de ambiente, se houver .env
 const envPath = path.resolve(__dirname, '.env');
 if (fs.existsSync(envPath)) {
   config({ path: envPath });
   console.log('Loaded environment variables from .env file');
 }
 
-// Tenta carregar rebrand config (se usar)
 let rebrandConfig = {};
 try {
   const rebrandConfigPath = path.resolve(__dirname, 'rebrand-config.json');
@@ -22,7 +20,6 @@ try {
   console.warn('Failed to load rebrand-config.json:', error.message);
 }
 
-// app.json base
 const appJson = require('./app.json');
 
 module.exports = {
@@ -56,10 +53,7 @@ module.exports = {
         "expo-build-properties",
         {
           ios: {
-            useModularHeaders: true,
-            extraPods: [
-              { name: "MapLibre" } // <- Formato certo!
-            ]
+            useModularHeaders: true // mantenha se for necessário para outros, senão pode remover
           }
         }
       ],

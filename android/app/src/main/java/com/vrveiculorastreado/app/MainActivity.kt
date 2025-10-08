@@ -1,4 +1,4 @@
-package com.wesodev1.mfrastreamento
+package com.vrveiculorastreado.app
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

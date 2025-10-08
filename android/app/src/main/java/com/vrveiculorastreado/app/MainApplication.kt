@@ -1,4 +1,4 @@
-package com.wesodev1.mfrastreamento
+package com.vrveiculorastreado.app
 
 import android.app.Application
 import android.content.res.Configuration

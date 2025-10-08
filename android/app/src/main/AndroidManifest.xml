@@ -26,6 +26,7 @@
         <category android:name="android.intent.category.BROWSABLE"/>
         <data android:scheme="veiculorastreado"/>
         <data android:scheme="com.wesodev1.mfrastreamento"/>
+        <data android:scheme="com.vrveiculorastreado.app"/>
       </intent-filter>
     </activity>
   </application>

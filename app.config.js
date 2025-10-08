@@ -1,7 +1,6 @@
 /**
  * Expo configuration with environment variables support
  */
-
 const path = require('path');
 const fs = require('fs');
 const { config } = require('dotenv');
@@ -34,13 +33,26 @@ module.exports = {
   expo: {
     ...appJson.expo,
     ios: {
+      ...appJson.expo.ios,
       bundleIdentifier: process.env.IOS_BUNDLE_ID || "com.vrveiculorastreado.app",
       googleServicesFile: "./GoogleService-Info.plist", // 👈 arquivo do Firebase iOS
     },
     android: {
+      ...appJson.expo.android,
       package: process.env.ANDROID_PACKAGE || "com.vrveiculorastreado.app",
       googleServicesFile: "./google-services.json", // 👈 arquivo do Firebase Android
     },
+    plugins: [
+      ...(appJson.expo.plugins || []), // mantém plugins já existentes
+      [
+        "expo-build-properties",
+        {
+          ios: {
+            useModularHeaders: true
+          }
+        }
+      ]
+    ],
     extra: {
       ...appJson.expo.extra,
       webviewBaseUrl: process.env.WEBVIEW_BASE_URL || rebrandConfig.webviewBaseUrl,

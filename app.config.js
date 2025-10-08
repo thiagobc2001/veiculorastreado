@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const { config } = require('dotenv');
-const withForceModularHeaders = require('./with-force-modular-headers'); // <-- Importa o plugin personalizado
+const withForceModularHeaders = require('./with-force-modular-headers'); // <-- Seu plugin customizado
 
 // Carrega variáveis de ambiente, se houver .env
 const envPath = path.resolve(__dirname, '.env');
@@ -50,17 +50,24 @@ module.exports = {
           backgroundColor: "#232323"
         }
       ],
+
       "@react-native-firebase/app",
       "@react-native-firebase/messaging",
+
       [
         "expo-build-properties",
         {
           ios: {
-            useModularHeaders: true
+            useModularHeaders: true, // mantenha true se for necessário para outros nativos — ou tire se não for preciso!
+            extraPods: [
+              { pod: "MapLibre" }
+            ]
           }
         }
       ],
-      withForceModularHeaders, // <-- Aqui o plugin custom pra modular headers!
+
+      withForceModularHeaders, // Seu plugin custom, se realmente usar
+      "@maplibre/maplibre-react-native"
     ],
     extra: {
       ...appJson.expo.extra,

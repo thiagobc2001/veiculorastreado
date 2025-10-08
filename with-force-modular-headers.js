@@ -7,16 +7,15 @@ module.exports = function withForceModularHeaders(config) {
       const fs = require('fs');
       const path = require('path');
 
-      // Caminho do Podfile após ele ter sido gerado por Expo/eas
       const podfilePath = path.join(config.modRequest.projectRoot, 'ios', 'Podfile');
 
       if (fs.existsSync(podfilePath)) {
         let podfile = fs.readFileSync(podfilePath, 'utf-8');
-        // Garante a linha global no topo do Podfile
+        // Encontra a linha do platform para adicionar logo abaixo
         if (!podfile.includes('use_modular_headers!')) {
           podfile = podfile.replace(
-            "platform :ios,",
-            `platform :ios,\nuse_modular_headers!`
+            /(platform :ios,[^\n]*\n)/,
+            "$1use_modular_headers!\n"
           );
           fs.writeFileSync(podfilePath, podfile);
           console.log('✅ [with-force-modular-headers] Adicionado use_modular_headers! global ao Podfile');

@@ -1,6 +1,3 @@
-/**
- * Expo configuration with environment variables support
- */
 const path = require('path');
 const fs = require('fs');
 const { config } = require('dotenv');
@@ -27,7 +24,6 @@ try {
 // Get app.json content
 const appJson = require('./app.json');
 
-// Export the configuration
 module.exports = {
   ...appJson,
   expo: {
@@ -35,15 +31,26 @@ module.exports = {
     ios: {
       ...appJson.expo.ios,
       bundleIdentifier: process.env.IOS_BUNDLE_ID || "com.vrveiculorastreado.app",
-      googleServicesFile: "./GoogleService-Info.plist", // 👈 arquivo do Firebase iOS
+      googleServicesFile: "./GoogleService-Info.plist"
     },
     android: {
       ...appJson.expo.android,
       package: process.env.ANDROID_PACKAGE || "com.vrveiculorastreado.app",
-      googleServicesFile: "./google-services.json", // 👈 arquivo do Firebase Android
+      googleServicesFile: "./google-services.json"
     },
     plugins: [
-      ...(appJson.expo.plugins || []), // mantém plugins já existentes
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          image: "./assets/images/splash-icon.png",
+          imageWidth: 200,
+          resizeMode: "contain",
+          backgroundColor: "#232323"
+        }
+      ],
+      "@react-native-firebase/app",
+      "@react-native-firebase/messaging",
       [
         "expo-build-properties",
         {
@@ -55,7 +62,7 @@ module.exports = {
     ],
     extra: {
       ...appJson.expo.extra,
-      webviewBaseUrl: process.env.WEBVIEW_BASE_URL || rebrandConfig.webviewBaseUrl,
-    },
-  },
+      webviewBaseUrl: process.env.WEBVIEW_BASE_URL || rebrandConfig.webviewBaseUrl
+    }
+  }
 };

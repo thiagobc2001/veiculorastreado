@@ -50,23 +50,20 @@ module.exports = {
           backgroundColor: "#232323"
         }
       ],
-
       "@react-native-firebase/app",
       "@react-native-firebase/messaging",
-
       [
         "expo-build-properties",
         {
           ios: {
-            useModularHeaders: true, // mantenha true se for necessário para outros nativos — ou tire se não for preciso!
+            useModularHeaders: true,
             extraPods: [
-              { pod: "MapLibre" }
+              { name: "MapLibre" } // <- Formato certo!
             ]
           }
         }
       ],
-
-      withForceModularHeaders, // Seu plugin custom, se realmente usar
+      withForceModularHeaders,
       "@maplibre/maplibre-react-native"
     ],
     extra: {

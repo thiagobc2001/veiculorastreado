@@ -1,22 +1,30 @@
 {
   "cli": {
-    "version": ">= 7.0.0"
+    "version": ">= 7.0.0",
+    "appVersionSource": "remote"
   },
   "build": {
     "development": {
       "developmentClient": true,
       "distribution": "internal",
+      "ios": {
+        "credentialsSource": "remote",
+        "simulator": false
+      },
       "android": {
         "buildType": "apk"
       }
     },
     "preview": {
       "distribution": "internal",
+      "ios": {
+        "credentialsSource": "remote",
+        "simulator": true
+      },
       "android": {
         "buildType": "apk",
         "gradleCommand": ":app:assembleRelease",
-        "credentialsSource": "remote",
-        "withoutCredentials": false
+        "credentialsSource": "remote"
       },
       "env": {
         "ANDROID_KEYSTORE_PASSWORD": "${ANDROID_KEYSTORE_PASSWORD}",
@@ -24,10 +32,13 @@
       }
     },
     "production": {
+      "ios": {
+        "credentialsSource": "remote",
+        "autoIncrement": true
+      },
       "android": {
         "buildType": "app-bundle",
-        "credentialsSource": "remote",
-        "withoutCredentials": false
+        "credentialsSource": "remote"
       },
       "env": {
         "ANDROID_KEYSTORE_PASSWORD": "${ANDROID_KEYSTORE_PASSWORD}",
@@ -36,6 +47,12 @@
     }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "appleId": "thiago@belcamsolutions.com",
+        "ascAppId": "com.vrveiculorastreado.app"
+      },
+      "android": {}
+    }
   }
 }

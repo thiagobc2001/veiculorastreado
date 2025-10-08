@@ -34,11 +34,11 @@ module.exports = {
   expo: {
     ...appJson.expo,
     ios: {
-      bundleIdentifier: process.env.IOS_BUNDLE_ID || "com.wesodev1.mfrastreamento",
+      bundleIdentifier: process.env.IOS_BUNDLE_ID || "com.vrveiculorastreado.app",
       googleServicesFile: "./GoogleService-Info.plist", // 👈 arquivo do Firebase iOS
     },
     android: {
-      package: process.env.ANDROID_PACKAGE || "com.wesodev1.mfrastreamento",
+      package: process.env.ANDROID_PACKAGE || "com.vrveiculorastreado.app",
       googleServicesFile: "./google-services.json", // 👈 arquivo do Firebase Android
     },
     extra: {

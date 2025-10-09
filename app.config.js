@@ -57,7 +57,8 @@ module.exports = {
           ios: {}
         }
       ],
-      "@maplibre/maplibre-react-native"
+      "@maplibre/maplibre-react-native",
+      "./with-force-modular-headers.js" // Plugin adicionado aqui
     ],
     extra: {
       ...appJson.expo.extra,

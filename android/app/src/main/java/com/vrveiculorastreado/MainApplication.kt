@@ -1,4 +1,4 @@
-package com.vrveiculorastreado.app
+package com.vrveiculorastreado
 
 import android.app.Application
 import android.content.res.Configuration

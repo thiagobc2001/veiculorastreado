@@ -10,7 +10,12 @@
       "distribution": "internal",
       "ios": {
         "credentialsSource": "remote",
-        "simulator": false
+        "simulator": false,
+        "autoIncrement": true,
+        "env": {
+          "EXPO_USE_POD_INSTALLER": "1"
+        },
+        "prebuildCommand": "npx expo prebuild --clean && cd ios && pod repo update && cd .."
       },
       "android": {
         "buildType": "apk"
@@ -20,7 +25,12 @@
       "distribution": "internal",
       "ios": {
         "credentialsSource": "remote",
-        "simulator": true
+        "simulator": true,
+        "autoIncrement": true,
+        "env": {
+          "EXPO_USE_POD_INSTALLER": "1"
+        },
+        "prebuildCommand": "npx expo prebuild --clean && cd ios && pod repo update && cd .."
       },
       "android": {
         "buildType": "apk",
@@ -35,7 +45,11 @@
     "production": {
       "ios": {
         "credentialsSource": "remote",
-        "autoIncrement": true
+        "autoIncrement": true,
+        "env": {
+          "EXPO_USE_POD_INSTALLER": "1"
+        },
+        "prebuildCommand": "npx expo prebuild --clean && cd ios && pod repo update && cd .."
       },
       "android": {
         "buildType": "app-bundle",

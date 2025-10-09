@@ -15,7 +15,7 @@
         "env": {
           "EXPO_USE_POD_INSTALLER": "1"
         },
-        "prebuildCommand": "node ./scripts/prebuild-ios.js"
+        "prebuildCommand": "node scripts/prebuild-ios.js"
       },
       "android": {
         "buildType": "apk"
@@ -30,7 +30,7 @@
         "env": {
           "EXPO_USE_POD_INSTALLER": "1"
         },
-        "prebuildCommand": "node ./scripts/prebuild-ios.js"
+        "prebuildCommand": "node scripts/prebuild-ios.js"
       },
       "android": {
         "buildType": "apk",
@@ -49,7 +49,7 @@
         "env": {
           "EXPO_USE_POD_INSTALLER": "1"
         },
-        "prebuildCommand": "node ./scripts/prebuild-ios.js"
+        "prebuildCommand": "node scripts/prebuild-ios.js"
       },
       "android": {
         "buildType": "app-bundle",

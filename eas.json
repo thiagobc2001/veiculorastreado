@@ -10,7 +10,10 @@
       "distribution": "internal",
       "ios": {
         "credentialsSource": "remote",
-        "simulator": false
+        "simulator": false,
+        "experimental": {
+          "preInstallCommand": "pod repo update"
+        }
       },
       "android": {
         "buildType": "apk"
@@ -20,7 +23,10 @@
       "distribution": "internal",
       "ios": {
         "credentialsSource": "remote",
-        "simulator": true
+        "simulator": true,
+        "experimental": {
+          "preInstallCommand": "pod repo update"
+        }
       },
       "android": {
         "buildType": "apk",
@@ -35,7 +41,10 @@
     "production": {
       "ios": {
         "credentialsSource": "remote",
-        "autoIncrement": true
+        "autoIncrement": true,
+        "experimental": {
+          "preInstallCommand": "pod repo update"
+        }
       },
       "android": {
         "buildType": "app-bundle",

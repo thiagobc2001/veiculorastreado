@@ -32,7 +32,6 @@ module.exports = {
       ...appJson.expo.ios,
       bundleIdentifier: process.env.IOS_BUNDLE_ID || "com.vrveiculorastreado.app",
       googleServicesFile: "./GoogleService-Info.plist",
-      // Sem useModularHeaders, sem extraPods!
     },
     android: {
       ...appJson.expo.android,
@@ -55,13 +54,10 @@ module.exports = {
       [
         "expo-build-properties",
         {
-          ios: {
-            // Não defina useModularHeaders ou extraPods!
-          }
+          ios: {}
         }
       ],
       "@maplibre/maplibre-react-native"
-      // Removi o withForceModularHeaders!
     ],
     extra: {
       ...appJson.expo.extra,

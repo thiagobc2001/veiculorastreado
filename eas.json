@@ -15,7 +15,7 @@
         "env": {
           "EXPO_USE_POD_INSTALLER": "1"
         },
-        "prebuildCommand": "npx expo prebuild --clean && cd ios && pod repo update && cd .."
+        "prebuildCommand": "npx expo prebuild --clean && (cd ios && pod repo update || true)"
       },
       "android": {
         "buildType": "apk"
@@ -30,7 +30,7 @@
         "env": {
           "EXPO_USE_POD_INSTALLER": "1"
         },
-        "prebuildCommand": "npx expo prebuild --clean && cd ios && pod repo update && cd .."
+        "prebuildCommand": "npx expo prebuild --clean && (cd ios && pod repo update || true)"
       },
       "android": {
         "buildType": "apk",
@@ -49,7 +49,7 @@
         "env": {
           "EXPO_USE_POD_INSTALLER": "1"
         },
-        "prebuildCommand": "npx expo prebuild --clean && cd ios && pod repo update && cd .."
+        "prebuildCommand": "npx expo prebuild --clean && (cd ios && pod repo update || true)"
       },
       "android": {
         "buildType": "app-bundle",

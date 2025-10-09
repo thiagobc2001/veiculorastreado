@@ -1,11 +1,11 @@
 const { execSync } = require("child_process");
 
-console.log("🧹 Running Expo prebuild clean...");
+console.log("🧹 Limpando build anterior e gerando projeto iOS...");
 execSync("npx expo prebuild --clean", { stdio: "inherit" });
 
 try {
-  console.log("📦 Updating CocoaPods repo...");
+  console.log("📦 Atualizando repositório CocoaPods...");
   execSync("cd ios && pod repo update && cd ..", { stdio: "inherit" });
 } catch (err) {
-  console.warn("⚠️ pod repo update skipped or failed (may not exist yet). Continuing...");
+  console.warn("⚠️ Aviso: pod repo update falhou ou ainda não existe — continuando o build...");
 }
